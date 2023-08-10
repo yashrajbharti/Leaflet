@@ -1,5 +1,5 @@
 let map = L.map("map").setView([41.661254, -0.892912], 13);
-let coords = "Coordinates are 0,0";
+let coordsToCopy = "Coordinates are 0,0";
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
@@ -12,7 +12,7 @@ function getUserLocation() {
       function (position) {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
-        coords = [latitude, longitude].toString();
+        coordsToCopy = [latitude, longitude].toString();
         L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup([latitude, longitude].toString())
@@ -48,8 +48,8 @@ function getUserLocation() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   let coordsElement = document.querySelector(".coords");
-  coordsElement.textContent = coords;
+  coordsElement.textContent = coordsToCopy;
 });
 coordsElement.addEventListener("click", function () {
-  navigator.clipboard.writeText(coords);
+  navigator.clipboard.writeText(coordsToCopy);
 });
