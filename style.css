@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   font-family: 'Geologica', sans-serif;
@@ -18,8 +25,13 @@ button {
   font-weight: 600;
   padding: 15px 20px;
   background-color: #fafffd;
-  border-radius: 35px;
+  border-radius: 30px;
   border-color: transparent;
+  border-width: 1px;
+}
+
+button#coords {
+  position: relative;
 }
 
 button#access {
@@ -49,4 +61,46 @@ button#access {
   bottom: 10px;
   left: 20px;
   z-index: 500;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #0e1012 !important;
+  color: #fafffd !important;
+}
+
+.leaflet-popup-close-button span {
+  color: #0e1012 !important;
+}
+
+.leaflet-container .leaflet-marker-pane img {
+  filter: grayscale(100%) saturate(100%) brightness(10%) contrast(100%) !important;
+}
+
+#coords:active {
+  color: transparent;
+}
+
+#coords:active:after {
+  content: "";
+  position: absolute;
+  color: rgb(40, 96, 207);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  background-color: rgba(190, 190, 190, 0.2);
+  border: 1px dashed rgb(40, 96, 207);
+}
+
+#coords:active:before {
+  content: "Copied!";
+  position: absolute;
+  color: rgb(40, 96, 207);
+  top: calc(50% - 10px);
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
