@@ -19,6 +19,7 @@ h1 {
 }
 
 button {
+  position: relative;
   color: #0e1012;
   display: inline-block;
   font-size: 18px;
@@ -29,14 +30,6 @@ button {
   border-color: transparent;
   border-width: 1px;
   box-sizing: border-box;
-}
-
-button#coords {
-  position: relative;
-}
-
-button#access {
-  display: none;
 }
 
 #map {

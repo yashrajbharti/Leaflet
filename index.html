@@ -18,25 +18,11 @@
 
   <h1>Get My Location Coordinates</h1>
   <div class="map-container">
-    <button id="access" style="position: absolute;" onclick="getUserLocation()">Place a point on the map</button>
-    <button id="coords">Click to Copy</button>
+    <button id="coords" onclick="getUserLocation()">Click to Copy</button>
     <div id="map"></div>
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js'></script>
-  <script>
-    (function getLocationPermission() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success);
-      }
-    })();
-    function success() {
-      console.log("it works")
-    }
-  </script>
   <script src="./script.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => document.getElementById("access").click())
-  </script>
 </body>
 
 </html>
