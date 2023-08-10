@@ -28,6 +28,7 @@ button {
   border-radius: 30px;
   border-color: transparent;
   border-width: 1px;
+  box-sizing: border-box;
 }
 
 button#coords {
@@ -80,19 +81,8 @@ button#access {
 
 #coords:active {
   color: transparent;
-}
-
-#coords:active:after {
-  content: "";
-  position: absolute;
-  color: rgb(40, 96, 207);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 30px;
-  background-color: rgba(190, 190, 190, 0.2);
   border: 1px dashed rgb(40, 96, 207);
+  background-color: #0e1012;
 }
 
 #coords:active:before {
