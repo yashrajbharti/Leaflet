@@ -14,7 +14,7 @@ function getUserLocation() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
         coordsToCopy = [latitude, longitude].toString();
-
+        navigator.clipboard.writeText(coordsToCopy);
         L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup([latitude, longitude].toString())
@@ -48,8 +48,3 @@ function getUserLocation() {
       "Geolocation is not supported by your browser.";
   }
 }
-
-let coordsElement = document.getElementById("coords");
-coordsElement.addEventListener("click", function () {
-  navigator.clipboard.writeText(coordsToCopy);
-});
