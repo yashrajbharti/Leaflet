@@ -15,7 +15,7 @@ function getUserLocation() {
 
         L.marker([latitude, longitude])
           .addTo(map)
-          .bindPopup("Your position")
+          .bindPopup([latitude, longitude].toString())
           .openPopup();
 
         map.setView([latitude, longitude], 13);
