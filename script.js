@@ -1,5 +1,5 @@
-var map = L.map("map").setView([41.661254, -0.892912], 13);
-
+let map = L.map("map").setView([41.661254, -0.892912], 13);
+let coords = "0.0";
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
@@ -10,9 +10,9 @@ function getUserLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        coords = [latitude, longitude].toString();
         L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup([latitude, longitude].toString())
@@ -21,7 +21,7 @@ function getUserLocation() {
         map.setView([latitude, longitude], 13);
       },
       function (error) {
-        var mapContainer = document.getElementById("map");
+        let mapContainer = document.getElementById("map");
         switch (error.code) {
           case error.PERMISSION_DENIED:
             mapContainer.innerHTML = "Access to geolocation was denied.";
