@@ -26,9 +26,12 @@
   <script>
     (function getLocationPermission() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition();
+        navigator.geolocation.getCurrentPosition(success);
       }
     })();
+    function success() {
+      console.log("it works")
+    }
   </script>
   <script src="./script.js"></script>
   <script>
