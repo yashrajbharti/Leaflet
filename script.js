@@ -1,10 +1,14 @@
 let map = L.map("map").setView([41.661254, -0.892912], 13);
-let coordsToCopy = "Coordinates are 0,0";
+let coordsToCopy;
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
+let coordsElement = document.getElementById("coords");
+coordsElement.addEventListener("click", function () {
+  navigator.clipboard.writeText(coordsToCopy);
+});
 
 function getUserLocation() {
   if (navigator.geolocation) {
@@ -13,6 +17,8 @@ function getUserLocation() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
         coordsToCopy = [latitude, longitude].toString();
+        coordsElement.textContent = coordsToCopy;
+
         L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup([latitude, longitude].toString())
@@ -46,8 +52,3 @@ function getUserLocation() {
       "Geolocation is not supported by your browser.";
   }
 }
-let coordsElement = document.querySelector(".coords");
-coordsElement.textContent = coordsToCopy;
-coordsElement.addEventListener("click", function () {
-  navigator.clipboard.writeText(coordsToCopy);
-});
