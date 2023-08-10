@@ -9,13 +9,22 @@ h1 {
   user-select: none;
 }
 
+p {
+  color: #0e1012;
+  display: inline-block;
+  font-size: 18px;
+  padding: 20px 25px;
+  background-color: #fafffd;
+  border-radius: 35px;
+}
+
 button {
   display: none;
 }
 
 #map {
   width: 90%;
-  height: 70vh;
+  height: 60vh;
   margin: 20px auto;
   border-radius: 30px;
 }
