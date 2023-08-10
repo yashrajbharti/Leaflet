@@ -23,6 +23,13 @@
     <div id="map"></div>
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js'></script>
+  <script>
+    (function getLocationPermission() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition();
+      }
+    })();
+  </script>
   <script src="./script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => document.getElementById("access").click())
