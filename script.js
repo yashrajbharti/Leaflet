@@ -1,5 +1,5 @@
 let map = L.map("map").setView([41.661254, -0.892912], 13);
-let coords = "0.0";
+let coords = "Coordinates are 0,0";
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
@@ -20,6 +20,7 @@ function getUserLocation() {
 
         map.setView([latitude, longitude], 13);
       },
+
       function (error) {
         let mapContainer = document.getElementById("map");
         switch (error.code) {
@@ -45,9 +46,10 @@ function getUserLocation() {
       "Geolocation is not supported by your browser.";
   }
 }
-
-let coordsElement = document.querySelector(".coords");
-coordsElement.textContent = coords;
+document.addEventListener("DOMContentLoaded", () => {
+  let coordsElement = document.querySelector(".coords");
+  coordsElement.textContent = coords;
+});
 coordsElement.addEventListener("click", function () {
   navigator.clipboard.writeText(coords);
 });
