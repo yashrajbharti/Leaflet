@@ -46,10 +46,8 @@ function getUserLocation() {
       "Geolocation is not supported by your browser.";
   }
 }
-document.addEventListener("DOMContentLoaded", () => {
-  let coordsElement = document.querySelector(".coords");
-  coordsElement.textContent = coordsToCopy;
-});
+let coordsElement = document.querySelector(".coords");
+coordsElement.textContent = coordsToCopy;
 coordsElement.addEventListener("click", function () {
   navigator.clipboard.writeText(coordsToCopy);
 });
