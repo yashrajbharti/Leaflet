@@ -17,7 +17,6 @@ function getUserLocation() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
         coordsToCopy = [latitude, longitude].toString();
-        coordsElement.textContent = coordsToCopy;
 
         L.marker([latitude, longitude])
           .addTo(map)
