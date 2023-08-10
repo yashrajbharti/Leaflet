@@ -46,6 +46,8 @@ function getUserLocation() {
   }
 }
 
-document.querySelector(".coords").addEventListener("click", function () {
-  navigator.clipboard.writeText(this.textContent);
+let coordsElement = document.querySelector(".coords");
+coordsElement.textContent = coords;
+coordsElement.addEventListener("click", function () {
+  navigator.clipboard.writeText(coords);
 });
