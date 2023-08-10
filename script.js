@@ -51,7 +51,5 @@ function getUserLocation() {
 
 let coordsElement = document.getElementById("coords");
 coordsElement.addEventListener("click", function () {
-  if (navigator.geolocation) {
-    navigator.clipboard.writeText(coordsToCopy);
-  }
+  navigator.clipboard.writeText(coordsToCopy);
 });
